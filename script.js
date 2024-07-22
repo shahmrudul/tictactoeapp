@@ -1,6 +1,7 @@
 const tictacgrid = document.querySelectorAll('.cell')
 let tictactoearray = []
 let previousturnofx
+let winner=false
 let winningoutcomes
 let gameover=false
 
@@ -31,22 +32,22 @@ function CheckWinner(arr){
     if(arr[a]&&arr[a]===arr[b]&&arr[a]===arr[c]){
       
       message.innerText=`${arr[a]} Wins`
+      winner=true
       gameover=true
-      
+      return
       
       
       
      
     }
-    if(arr.length===9 && !arr.includes(undefined)){
-      message.innerText="Game is Draw"
     
-      setTimeout(()=>{
-        ResetButton(tictacgrid,tictactoearray)
-        message.innerText=""
-        gameover=false
-      },2000)
-    }
+  }
+  if(arr.length===9 && !arr.includes(undefined)){
+    console.log(winner)
+    message.innerText="Game is Draw"
+   
+    
+    
   }
 }
 
